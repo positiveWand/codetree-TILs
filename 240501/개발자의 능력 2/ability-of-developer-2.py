@@ -8,7 +8,7 @@ for i in range(len(abilities)):
     for j in range(i+1, len(abilities)):
         for k in range(len(abilities)):
             for l in range(k+1, len(abilities)):
-                if i == k or j == l:
+                if i == k or j == l or i == l or j == k:
                     continue
                 
                 # count += 1
