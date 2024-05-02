@@ -19,11 +19,11 @@ for i in range(N):
             
             time_start, time_end = time
             if time_start <= devs[j][0] < time_end:
-                online.append((min(time_start, devs[j][0]), devs[j][1]))
+                online.append((time_start, max(time_end, devs[j][1])))
                 online.remove(None)
                 break
             elif time_start <= devs[j][1] < time_end:
-                online.append((devs[j][0], min(time_end, devs[j][1])))
+                online.append((min(time_start, devs[j][0]), time_end))
                 online.remove(None)
                 break
             else:
