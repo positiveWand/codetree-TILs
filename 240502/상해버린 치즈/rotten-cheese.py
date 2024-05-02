@@ -16,7 +16,6 @@ for p, c, t in eat_record:
     if p in hurt and t < min_time[p]:
         probable[p].add(c)
 
-
 # print(probable)
 rotten = set()
 for p in hurt:
@@ -26,11 +25,15 @@ for p in hurt:
 
 # print(rotten)
 
+for p, c, t in eat_record:
+    if c in rotten and max([p for p in min_time.values() if p != float('inf')]) < t:
+        rotten.remove(c)
+
 
 # 상한 치즈 먹은 사람 찾기
 answer = set()
 for p, c, t in eat_record:
     if c in rotten:
         answer.add(p)
-
+# print(answer)
 print(len(answer))
