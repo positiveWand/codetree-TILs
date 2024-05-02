@@ -16,13 +16,14 @@ for i in range(N):
             if not time:
                 online.append(devs[j])
                 break
+            
             time_start, time_end = time
-            if time_start <= devs[j][0] < time_end and time_end < devs[j][1]:
-                online.append((time_start, devs[j][1]))
+            if time_start <= devs[j][0] < time_end:
+                online.append((min(time_start, devs[j][0]), devs[j][1]))
                 online.remove(None)
                 break
-            elif time_start <= devs[j][1] < time_end and devs[j][0] < time_start:
-                online.append((devs[j][0], time_end))
+            elif time_start <= devs[j][1] < time_end:
+                online.append((devs[j][0], min(time_end, devs[j][1])))
                 online.remove(None)
                 break
             else:
@@ -31,6 +32,8 @@ for i in range(N):
     total = 0
     for start, end in online:
         total += end-start
+    
+    # print(online)
     
     answer = max(answer, total)
 
