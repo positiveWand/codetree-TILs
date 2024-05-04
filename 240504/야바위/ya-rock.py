@@ -2,8 +2,7 @@ N = int(input())
 
 shuffle = [tuple(map(int, input().split())) for _ in range(N)]
 
-max_point = 0
-answer = None
+answer = 0
 
 for i in range(3):
     point = 0
@@ -22,7 +21,6 @@ for i in range(3):
         if board[c-1]:
             point += 1
 
-    if max_point < point:
-        answer = i+1
+    answer = max(answer, point)
 
 print(answer)
