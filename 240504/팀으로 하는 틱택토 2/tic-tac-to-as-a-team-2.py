@@ -16,26 +16,35 @@ for i in range(1, 10):
         if test[0][0]==test[0][1]==test[0][2]==0:
             if len(set(board[0])) == 2:
                 answer += 1
-        elif test[1][0]==test[1][1]==test[1][2]==0:
+                continue
+        if test[1][0]==test[1][1]==test[1][2]==0:
             if len(set(board[1])) == 2:
                 answer += 1
-        elif test[2][0]==test[2][1]==test[2][2]==0:
+                continue
+        if test[2][0]==test[2][1]==test[2][2]==0:
             if len(set(board[2])) == 2:
                 answer += 1
-        elif test[0][0]==test[1][0]==test[2][0]==0:
+                continue
+        if test[0][0]==test[1][0]==test[2][0]==0:
             if len(set([board[0][0],board[1][0],board[2][0]])) == 2:
                 answer += 1
-        elif test[0][1]==test[1][1]==test[2][1]==0:
+                continue
+        if test[0][1]==test[1][1]==test[2][1]==0:
             if len(set([board[0][1],board[1][1],board[2][1]])) == 2:
                 answer += 1
-        elif test[0][2]==test[1][2]==test[2][2]==0:
+                continue
+        if test[0][2]==test[1][2]==test[2][2]==0:
             if len(set([board[0][2],board[1][2],board[2][2]])) == 2:
                 answer += 1
-        elif test[0][0]==test[1][1]==test[2][2]==0:
+                continue
+        if test[0][0]==test[1][1]==test[2][2]==0:
             if len(set([board[0][0],board[1][1],board[2][2]])) == 2:
                 answer += 1
-        elif test[0][2]==test[1][1]==test[2][0]==0:
+                continue
+        if test[0][2]==test[1][1]==test[2][0]==0:
             if len(set([board[0][2],board[1][1],board[2][0]])) == 2:
                 answer += 1
+                continue
+
 
 print(answer)
