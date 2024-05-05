@@ -8,7 +8,7 @@ for first in range(1, N+1):
     current = first
     for n in neighbor_sums:
         new = n-current
-        if new in original:
+        if new in original or not (0<=new<=n):
             fail = True
             break
         else:
