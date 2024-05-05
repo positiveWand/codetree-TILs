@@ -12,13 +12,12 @@ for i in range(N):
             continue
         
         closest_distance = float('inf')
-        for k in range(len(occupied)):
-            for l in range(k+1, len(occupied)):
-                closest_distance = min(closest_distance, abs(occupied[k]-occupied[l]))
 
-        for o in occupied:
-            closest_distance = min(closest_distance, abs(o-i))
-            closest_distance = min(closest_distance, abs(o-j))
+        for p1 in occupied+[i,j]:
+            for p2 in occupied+[i,j]:
+                if p1 == p2:
+                    continue
+                closest_distance = min(closest_distance, abs(p1-p2))
         
         answer = max(answer , closest_distance)
 
