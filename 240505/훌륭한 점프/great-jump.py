@@ -3,9 +3,9 @@ nums = list(map(int, input().split()))
 
 answer = float('inf')
 for idx, max_num in enumerate(nums):
-    if idx == 0 or idx == len(nums)-1:
+    if max_num < nums[0] or max_num < nums[len(nums)-1]:
         continue
-        
+
     idx_arr = [0]
     for i, num in enumerate(nums):
         if i == 0 or i == len(nums)-1:
