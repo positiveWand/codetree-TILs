@@ -8,6 +8,7 @@ for i in range(n):
 
     if max_start <= min_end:
         possible = True
+        break
 
 if possible:
     print('Yes')
