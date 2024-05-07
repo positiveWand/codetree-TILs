@@ -4,14 +4,25 @@ for _ in range(m):
     programmer, left = input().split()
     messages.append((programmer, int(left)))
 
-suspect = set(list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')[:n])
-for i, message in enumerate(messages):
-    programmer, left = message
-    if i < p-1:
-        continue
+suspects = [None for _ in range(m)]
 
-    suspect.discard(programmer)
-    if left == 0:
-        suspect -= set(list('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))
+for i in range(p):
+    new_suspect = set(list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')[:n])
+    for j, message in enumerate(messages):
+        programmer, left = message
+        if j < p-1:
+            continue
 
-print(' '.join(sorted(list(suspect))))
+        new_suspect.discard(programmer)
+        if left == 0:
+            new_suspect -= set(list('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))
+    
+    if i != 0:
+        before_suspect_count = messages[i][1]
+
+        if messages[i][1] == messages[i-1][1]:
+            new_suspect = set(suspects[i-1])
+        
+    suspects[i] = new_suspect
+
+print(' '.join(sorted(list(suspects[p-1]))))
