@@ -1,5 +1,5 @@
 N = int(input())
-piegeons = [None for _ in range(N)]
+piegeons = [None for _ in range(11)]
 
 answer = 0
 for i in range(N):
