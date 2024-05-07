@@ -1,12 +1,17 @@
 X = int(input())
 
-answer = float('inf')
-for x in range(101):
-    for y in range(x+1, 101):
-        # print(((x+1)*y))
-        if X == (x+1)*y:
-            answer = min(answer, x+y)
-        elif X == (x+1)*y+1:
-            answer = min(answer, x+y+1)
+current_distance = 0
+current_speed = 1
+current_time = 0
+while current_distance < X:
+    current_distance += current_speed
+    current_time += 1
+    
+    if X >= current_distance + (current_speed+1)*(current_speed+2)/2:
+        current_speed += 1
+    elif X >= current_distance + (current_speed)*(current_speed+1)/2:
+        current_speed += 0
+    else:
+        current_speed -= 1
 
-print(answer)
+print(current_time)
