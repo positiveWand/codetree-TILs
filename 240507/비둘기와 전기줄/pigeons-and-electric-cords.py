@@ -8,5 +8,6 @@ for i in range(N):
         piegeons[piegeon] = where
     elif piegeons[piegeon] != where:
         answer += 1
+        piegeons[piegeon] = where
 
 print(answer)
