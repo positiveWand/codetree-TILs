@@ -8,21 +8,19 @@ suspects = [None for _ in range(m)]
 
 for i in range(p):
     new_suspect = set(list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')[:n])
-    for j, message in enumerate(messages):
+    for j, message in enumerate(messages[i:]):
         programmer, left = message
-        if j < p-1:
-            continue
 
         new_suspect.discard(programmer)
         if left == 0:
             new_suspect -= set(list('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))
-    
+    # print(new_suspect)
     if i != 0:
-        before_suspect_count = messages[i][1]
-
         if messages[i][1] == messages[i-1][1]:
             new_suspect = set(suspects[i-1])
         
     suspects[i] = new_suspect
+
+# print(suspects)
 
 print(' '.join(sorted(list(suspects[p-1]))))
