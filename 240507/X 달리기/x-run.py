@@ -1,8 +1,8 @@
 X = int(input())
 
 answer = float('inf')
-for x in range(100):
-    for y in range(x+1, 100):
+for x in range(101):
+    for y in range(x+1, 101):
         # print(((x+1)*y))
         if X == (x+1)*y:
             answer = min(answer, x+y)
