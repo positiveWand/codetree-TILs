@@ -50,6 +50,7 @@ else:
                 before = i
 
         candidates.append(min_distance)
+        seats[0] = 0
     if seats[N-1] == 0:
         seats[N-1] = 1
 
@@ -62,5 +63,6 @@ else:
                 before = i
 
         candidates.append(min_distance)
+        seats[N-1] = 0
 
     print(min(candidates))
