@@ -17,10 +17,10 @@ else:
     # 가장 가까운 2개 위치 계산
     furthest = None
     max_distance = 0
-    before = 0
+    before = None
     for i in range(N):
         if i != 0 and seats[i] == 1:
-            if  max_distance < i-before:
+            if  before != None and max_distance < i-before:
                 max_distance = i-before
                 furthest = (before, i)
             before = i
@@ -29,13 +29,16 @@ else:
 
     # 거리 최소값 계산
     min_distance = float('inf')
-    before = 0
+    before = None
     for i in range(N):
-        if i != 0 and seats[i] == 1:
-            min_distance = min(min_distance, i-before)
+        if seats[i] == 1:
+            if before != None:
+                min_distance = min(min_distance, i-before)
             before = i
 
     candidates.append(min_distance)
+    # print(seats)
+    # print(candidates)
 
     seats[(furthest[1]+furthest[0])//2] = 0
 
@@ -44,10 +47,11 @@ else:
 
         # 거리 최소값 계산
         min_distance = float('inf')
-        before = 0
+        before = None
         for i in range(N):
-            if i != 0 and seats[i] == 1:
-                min_distance = min(min_distance, i-before)
+            if seats[i] == 1:
+                if before != None:
+                    min_distance = min(min_distance, i-before)
                 before = i
 
         candidates.append(min_distance)
@@ -57,10 +61,11 @@ else:
 
         # 거리 최소값 계산
         min_distance = float('inf')
-        before = 0
+        before = None
         for i in range(N):
-            if i != 0 and seats[i] == 1:
-                min_distance = min(min_distance, i-before)
+            if seats[i] == 1:
+                if before != None:
+                    min_distance = min(min_distance, i-before)
                 before = i
 
         candidates.append(min_distance)
