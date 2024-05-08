@@ -12,11 +12,11 @@ for i in range(N):
             furthest = (before, i)
         before = i
 
-print(max_distance)
-print(furthest)
+# print(max_distance)
+# print(furthest)
 
 seats[(furthest[1]+furthest[0])//2] = 1
-print(seats)
+# print(seats)
 
 
 
