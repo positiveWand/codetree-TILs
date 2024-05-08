@@ -38,6 +38,7 @@ else:
     candidates.append(min_distance)
 
     seats[(furthest[1]+furthest[0])//2] = 0
+
     if seats[0] == 0:
         seats[0] = 1
 
@@ -65,4 +66,4 @@ else:
         candidates.append(min_distance)
         seats[N-1] = 0
 
-    print(min(candidates))
+    print(max(candidates))
