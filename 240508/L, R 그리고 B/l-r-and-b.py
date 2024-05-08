@@ -19,10 +19,10 @@ for i in range(10):
 # print(l_pos, r_pos, b_pos)
 
 distance = None
-if l_pos[0]==r_pos[0]==b_pos[0] and l_pos[0] < r_pos[0] < b_pos[0]:
+if l_pos[0]==r_pos[0]==b_pos[0] and l_pos[1] < r_pos[1] < b_pos[1]:
     distance = abs(l_pos[1]-b_pos[1])+1
     # print('x')
-elif l_pos[1]==r_pos[1]==b_pos[1] and l_pos[1] < r_pos[1] < b_pos[1]:
+elif l_pos[1]==r_pos[1]==b_pos[1] and l_pos[0] < r_pos[0] < b_pos[0]:
     distance = abs(l_pos[0]-b_pos[0])+1
     # print('y')
 else:
