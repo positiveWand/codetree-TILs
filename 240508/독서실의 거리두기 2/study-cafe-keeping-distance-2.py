@@ -19,7 +19,7 @@ else:
     max_distance = 0
     before = None
     for i in range(N):
-        if i != 0 and seats[i] == 1:
+        if seats[i] == 1:
             if  before != None and max_distance < i-before:
                 max_distance = i-before
                 furthest = (before, i)
