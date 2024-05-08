@@ -16,7 +16,10 @@ for num in nums:
 positive.sort()
 negative.sort()
 
-candidate = [0]
+# print(positive)
+# print(negative)
+
+candidate = []
 if len(positive)>=3:
     candidate.append(positive[-1]*positive[-2]*positive[-3])
 if len(negative)>=3:
@@ -25,6 +28,8 @@ if len(positive)>=1 and len(negative)>=2:
     candidate.append(positive[-1]*negative[0]*negative[1])
 if len(negative)>=1 and len(positive)>=2:
     candidate.append(negative[-1]*positive[0]*positive[1])
+if zero:
+    candidate.append(0)
 
 
 print(max(candidate))
