@@ -50,7 +50,7 @@ else:
                 before = i
 
         candidates.append(min_distance)
-    if seats[N-1] == 1:
+    if seats[N-1] == 0:
         seats[N-1] = 1
 
         # 거리 최소값 계산
