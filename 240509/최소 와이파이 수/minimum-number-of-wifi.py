@@ -10,7 +10,7 @@ while current < n:
         if s == 1:
             count += 1
     
-    if before_count < count:
+    if before_count < count and current+m < n:
         current = current+1
         before_count = count
     else:
