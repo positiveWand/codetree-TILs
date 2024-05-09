@@ -1,25 +1,15 @@
 n, m = tuple(map(int, input().split()))
 status = list(map(int, input().split()))
-available = [False if status[i]==1 else True for i in range(n)]
 
-wifi = 0
-while not all(available):
-    max_count = -1
-    max_pos = None
+# 사람이 살고 있는 곳이 나오면
+# 와이파이를 해당 위치로부터 오른쪽으로 m만큼 떨어진 곳에 놓은 뒤,
+# 2m만큼 떨어진 곳에서 시작하여 다시 탐색을 진행합니다.
+cnt, i = 0, 0
+while i < n:
+    if status[i] == 1:
+        cnt += 1
+        i += 2 * m + 1
+    else:
+        i += 1
 
-    for i in range(n):
-        count = 0
-        for j in range(max(0, i-m), min(n, i+m+1)):
-            if status[j] == 1 and not available[j]:
-                count += 1
-        
-        if count > max_count:
-            max_count = count
-            max_pos = i
-
-    for i in range(max(0, max_pos-m), min(n, max_pos+m+1)):
-        available[i] = True
-    # print(max_pos)
-    wifi += 1
-
-print(wifi)
+print(cnt)
