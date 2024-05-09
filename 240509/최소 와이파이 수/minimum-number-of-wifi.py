@@ -1,22 +1,25 @@
 n, m = tuple(map(int, input().split()))
 status = list(map(int, input().split()))
+available = [False if status[i]==1 else True for i in range(n)]
 
-current = 0
-before_count = 0
 wifi = 0
-while current < n:
-    count = 0
-    for s in status[max(0, current-m):min(n, current+m)]:
-        if s == 1:
-            count += 1
-    
-    if before_count < count:
-        current = current+1
-        before_count = count
-    else:
-        current = current+m
-        if count > 0:
-            wifi += 1
-        before_count = 0
+while not all(available):
+    max_count = -1
+    max_pos = None
+
+    for i in range(n):
+        count = 0
+        for j in range(max(0, i-m), min(n, i+m+1)):
+            if status[j] == 1 and not available[j]:
+                count += 1
+        
+        if count > max_count:
+            max_count = count
+            max_pos = i
+
+    for i in range(max(0, max_pos-m), min(n, max_pos+m+1)):
+        available[i] = True
+    # print(max_pos)
+    wifi += 1
 
 print(wifi)
