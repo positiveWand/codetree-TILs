@@ -1,6 +1,6 @@
 N = int(input())
 
-arr = map(int, input().split())
+arr = list(map(int, input().split()))
 
 count = 1
 for i in range(N-1, -1, -1):
