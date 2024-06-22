@@ -7,7 +7,8 @@ for i in range(len(string)):
     else:
         if len(stack) == 0 or string[i] == ')':
             break
-        stack.pop()
+        else:
+            stack.pop()
 
 if len(stack) == 0:
     print('Yes')
