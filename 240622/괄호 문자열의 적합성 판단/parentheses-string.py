@@ -6,7 +6,6 @@ for i in range(len(string)):
         stack.append('(')
     else:
         if len(stack) == 0 or string[i] == ')':
-            print('No')
             break
         stack.pop()
 
