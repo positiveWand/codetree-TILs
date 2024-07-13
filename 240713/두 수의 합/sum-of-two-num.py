@@ -11,7 +11,7 @@ for n in nums:
 answer = 0
 for i, n in enumerate(nums):
     if (k - n) in count and count[k-n] >= 1:
-        answer += count[k-n]
         count[n] -= 1
+        answer += count[k-n]
 
 print(answer)
