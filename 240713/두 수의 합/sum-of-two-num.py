@@ -9,13 +9,9 @@ for n in nums:
     count[n] += 1
 
 answer = 0
-used = set()
-for num in count.keys():
-    if num in used:
-        continue
-    if (k - num) in count:
-        used.add(num)
-        used.add(k-num)
-        answer += count[num] * count[k-num]
+for i, n in enumerate(nums):
+    if (k - n) in count and count[k-n] >= 1:
+        answer += count[k-n]
+        count[n] -= 1
 
 print(answer)
