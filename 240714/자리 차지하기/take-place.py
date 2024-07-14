@@ -22,7 +22,8 @@ class SortedList:
     def add(self, element):
         left = self.bisect_right(element)
         
-        self.arr[left:left] = [element]
+        # self.arr[left:left] = [element]
+        self.arr.insert(left, element)
         
         # print(self.arr)
     
@@ -38,6 +39,7 @@ sl = SortedList([])
 answer = 0
 for i in inputs:
     br = sl.bisect_right(i)
+    # print(br)
 
     if br < i:
         sl.add(i)
