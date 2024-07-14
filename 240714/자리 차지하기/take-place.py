@@ -22,10 +22,7 @@ class SortedList:
     def add(self, element):
         left = self.bisect_right(element)
         
-        if left < len(self.arr):
-            self.arr[left:left] = [element]
-        else:
-            self.arr.append(element)
+        self.arr[left:left] = [element]
         
         # print(self.arr)
     
