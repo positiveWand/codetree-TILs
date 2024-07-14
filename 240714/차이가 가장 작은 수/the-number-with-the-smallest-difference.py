@@ -60,18 +60,26 @@ for _ in range(n):
     num = int(input())
     nums.append(num)
 
+nums.sort()
+
 answer = float('inf')
 for num in nums:
-    right = num + m
-    left = num - m
-    right = bisect_left(nums, right)
-    left = bisect_right(nums, left)-1
+    lowerbound = num + m
+    upperbound = num - m
+    right = bisect_left(nums, lowerbound)
+    left = bisect_left(nums, upperbound)
+
+    # print(right, left)
 
     if 0<=right<len(nums):
         answer = min(answer, abs(num-nums[right]))
-    if 0<=left<len(nums):
-        answer = min(answer, abs(num-nums[left]))
-if answer == float('inf'):
+    if 0<left<len(nums):
+        if nums[left] == num:
+            answer = min(answer, abs(num-nums[left]))
+        else:
+            answer = min(answer, abs(num-nums[left-1]))
+
+if answer != float('inf'):
     print(answer)
 else:
     print(-1)
