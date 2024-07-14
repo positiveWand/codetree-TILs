@@ -71,5 +71,7 @@ for num in nums:
         answer = min(answer, abs(num-nums[right]))
     if 0<=left<len(nums):
         answer = min(answer, abs(num-nums[left]))
-
-print(answer)
+if answer == float('inf'):
+    print(answer)
+else:
+    print(-1)
