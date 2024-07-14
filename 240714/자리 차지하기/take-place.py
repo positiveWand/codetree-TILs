@@ -1,48 +1,49 @@
 n, m = tuple(map(int, input().split()))
 inputs = list(map(int, input().split()))
 
-class SortedList:
+class SortedSet:
     def __init__(self, elements):
-        self.arr = sorted(list(elements))
-        # print(self.arr)
-    
+        self.set = set(elements)
+        self.lst = list(self.set)
+        self.lst.sort()
+
     def bisect_right(self, element):
         left = 0
-        right = len(self.arr) - 1
+        right = len(self.lst) - 1
 
         while left <= right:
             mid = left + (right-left)//2
-            if self.arr[mid] <= element:
+            if self.lst[mid] <= element:
                 left = mid+1
             else:
                 right = mid-1
         
         return left
     
-    def add(self, element):
-        left = self.bisect_right(element)
-        
-        # self.arr[left:left] = [element]
-        self.arr.insert(left, element)
-        
-        # print(self.arr)
+    def add(self, item):
+        self.set.add(item)
+        self.lst.insert(self.bisect_right(item), item)
     
-    def size(self):
-        return len(self.arr)
+    def remove(self, item):
+        self.set.remove(item)
+        target = self.bisect_right(item) - 1
+        if 0<=target<len(self.lst) and self.lst[target] == item:
+            self.lst.pop(target)
     
     def get(self, index):
-        return self.arr[index]
-    
+        return self.lst[index]
 
-sl = SortedList([])
+
+seats = SortedSet(list(range(1, m+1)))
 
 answer = 0
 for i in inputs:
-    br = sl.bisect_right(i)
-    # print(br)
+    idx = seats.bisect_right(i)
 
-    if br < i:
-        sl.add(i)
+    if idx != 0:
+        idx -= 1
+        seats.remove(seats.get(idx))
+
         answer += 1
     else:
         break
